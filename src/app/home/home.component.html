@@ -17,3 +17,54 @@
     </div>
   </div>
 </nav>
+
+<form class="container mt-5" (ngSubmit)="insertData()">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="task.name" required>
+    <label for="name">Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select class="form-select" id="urgency" name="urgency" [(ngModel)]="task.urgency" required>
+      <option value="">Choose urgency</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Média">Média</option>
+      <option value="Alta">Alta</option>
+    </select>
+    <label for="urgency">Urgency</label>
+  </div>
+  <button type="submit" class="btn btn-primary">New Task</button>
+</form>
+
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="col mt-5 mb-5">
+      <div class="col-md-8 mx-auto">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Tarefa</th>
+                <th>Urgência</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <th scope="row">{{ task.id }}</th>
+                <td>{{ task.name }}</td>
+                <td>{{ task.urgency }}</td>
+                <td>
+                  <button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{ task.id }}">Edit</button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteData(task.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

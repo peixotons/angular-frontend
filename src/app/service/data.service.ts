@@ -15,4 +15,24 @@ export class DataService {
   login(data: any) {
     return this.http.post(environment.apiUrl + '/api/login/', data);
   }
+
+  getData() {
+    return this.http.get('http://127.0.0.1:8000/api/tasks');
+  }
+
+  insertData(data: any) {
+    return this.http.post('http://127.0.0.1:8000/api/tasks/create', data);
+  }
+
+  deleteData(id: any) {
+    return this.http.delete('http://127.0.0.1:8000/api/tasks/delete/' + id);
+  }
+
+  getTasksById(id: any) {
+    return this.http.get('http://127.0.0.1:8000/api/tasks/' + id);
+  }
+
+  updateData(id: any, data: any) {
+    return this.http.put('http://127.0.0.1:8000/api/tasks/update/' + id, data);
+  }
 }

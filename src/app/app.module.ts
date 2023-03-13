@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { TaskEditComponent } from './task-edit/task-edit.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'edit/:id',
+    component: TaskEditComponent,
+  },
 ];
 
 @NgModule({
@@ -35,6 +40,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    TaskEditComponent,
   ],
   imports: [
     BrowserModule,
